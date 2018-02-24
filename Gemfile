@@ -57,3 +57,5 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 gem 'rspotify'
+
+gem 'activerecord-reset-pk-sequence'
