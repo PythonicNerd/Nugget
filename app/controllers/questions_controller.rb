@@ -4,10 +4,27 @@ class QuestionsController < ApplicationController
 
     begin
       @categories = Rails.application.config.categories
+      @times = Rails.application.config.times
     rescue
-      @categories = nil
+      puts "RESCUE"
+      @categories = []
+      Rails.application.config.categories = @categories
+
+      Rails.application.config.times = 0
+
+      @times = Rails.application.config.times
     end
-    puts Question.all[0].attributes
+
+
+
+    Rails.application.config.times += 1
+
+    if Rails.application.config.times  >= 6
+      redirect_to swipes_path
+      puts "GREAT"
+    end
+
+    puts @times
 
     @current_question = Question.all.sample
 
@@ -17,10 +34,12 @@ class QuestionsController < ApplicationController
 
   end
 
-  def swipe_right
+  def yes
     puts "SWIPED RIGHT"
 
     question = Question.find(params[:question_id])
+    Rails.application.config.categories.append(question.rawdata)
+
 
 
 

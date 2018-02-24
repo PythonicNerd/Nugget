@@ -4,7 +4,15 @@ Rails.application.routes.draw do
   root 'pages#landing_page'
 
   resources "questions" do
-    get 'swipe_right'
-    post 'swipe_right'
+    get 'yes'
+    post 'yes'
+  end
+
+  resources "swipes" do
+    get 'next'
+    post 'next'
+
+    get 'right'
+    post 'right'
   end
 end
