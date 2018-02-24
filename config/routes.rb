@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     post 'next'
 
   end
+
+  resources 'landing_page'
 end

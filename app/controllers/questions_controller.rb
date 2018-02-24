@@ -4,7 +4,10 @@ class QuestionsController < ApplicationController
 
     begin
       @categories = Rails.application.config.categories
+
       @times = Rails.application.config.times
+      puts Rails.application.config.times
+      puts "TIME"
       @question_array = Rails.application.config.question_array
 
     rescue
@@ -14,23 +17,28 @@ class QuestionsController < ApplicationController
 
       Rails.application.config.times = 0
 
-      @times = Rails.application.config.times
 
       Rails.application.config.question_array = Question.all.shuffle
 
-      @question_array = Rails.application.config.question_array
+      @question_array = Question.all.shuffle
     end
 
 
+    puts Rails.application.config.times
+    puts "^"
+    #Rails.application.config.times += 1
 
-    Rails.application.config.times += 1
 
     if Rails.application.config.times  >= 10
-      redirect_to swipes_path
+      Rails.application.config.times = 0
+      puts Rails.application.config.times
+      puts "TIME^"
+     redirect_to swipes_path
     end
 
 
     @current_question = Question.all.sample
+    puts 'index'
 
   end
 
@@ -41,7 +49,10 @@ class QuestionsController < ApplicationController
   def yes
     puts "SWIPED RIGHT"
 
-    question = Question.find(params[:question_id])
+    question = Rails.application.config.question_array[0]
+    puts question.attributes
+
+
     Rails.application.config.categories.append(question.rawdata)
 
     Rails.application.config.question_array.shift
@@ -57,6 +68,8 @@ class QuestionsController < ApplicationController
     Rails.application.config.question_array.shift
 
     redirect_to questions_path
+
+    puts 'no'
 end
 
 end

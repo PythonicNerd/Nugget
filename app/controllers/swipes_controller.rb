@@ -32,9 +32,11 @@ class SwipesController < ApplicationController
 
     Rails.application.config.question_array = []
 
-    Rails.application.config.times = 0
 
     puts @array_of_tracks
+
+    puts @genres
+    puts "^^^^"
 
 
   end

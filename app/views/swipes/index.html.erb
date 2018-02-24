@@ -1,0 +1,39 @@
+<style>
+
+html, body{height:100%; margin:0;padding:0}
+
+
+.yes-button{
+  margin-right: 2%;
+
+}
+.container-main{
+  margin-top: 20%;
+}
+
+.choice-row{
+  margin-top: 5px;
+}
+
+.col{
+  margin-top: 15px;
+}
+
+.btn-left{
+  margin-right: 10px;
+}
+
+</style>
+
+
+<div class="container text-center container-main vertical-center">
+<h1 ><%= Rails.application.config.array_of_tracks[0][:name] %></h1>
+<h3>By: <%= Rails.application.config.array_of_tracks[0][:artist] %> (<%= @array_of_tracks[0][:duration] %>)</h3>
+
+<div class="row choice-row text-center">
+  <div class="col">
+  <%= link_to "Left", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left" %>
+  <%= link_to "Right", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg" %>
+</div>
+</div>
+</div>

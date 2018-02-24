@@ -1,1 +1,58 @@
-<h1>Welcome to Nugget.</h1>
+<style>
+
+
+  .header{
+    background: rgb(119, 221, 119);  /* fallback for old browsers */
+   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: 150px;
+  border-radius: 5px;
+  border: 2px solid black;
+  opacity:1;
+  }
+
+  .header-text{
+    position: relative;
+    margin-top: 4%;
+    opacity: 1;
+
+  }
+
+  .btn-container{
+    margin-top: 10%;
+    opacity: 1;
+  }
+
+  .btn-class{
+    height:75px;
+    width:300px;
+    font-size:25px;
+    vertical-align: middle;
+  }
+
+  .col{
+    text-align:center;
+    margin-top: 5%;
+    font-family: "Courier New"
+  }
+
+  .sources-container{
+    margin-top: 5%;
+
+  }
+
+  body{
+
+  opacity: 1;
+
+  }
+</style>
+
+
+<div class="container text-center">
+  <h1 class="header-text">Welcome to Nugget.</h1>
+</div>
+
+<div class="container text-center btn-container">
+<%= link_to "Let's find some music.", questions_path, :class => "btn btn-lg btn-info text-center btn-class align-middle" %>
+</div>
