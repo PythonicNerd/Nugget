@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   resources "questions" do
     get 'yes'
     post 'yes'
+
+    get 'no'
+    post 'no'
   end
 
   resources "swipes" do
     get 'next'
     post 'next'
 
-    get 'right'
-    post 'right'
   end
 end

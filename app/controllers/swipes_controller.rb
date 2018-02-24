@@ -22,12 +22,17 @@ class SwipesController < ApplicationController
       h[:duration] = get_duration_hrs_and_mins(track.duration_ms).to_s
       h[:url] = track.preview_url
 
-      @array_of_tracks.push(h)
-
+      if h[:url] != nil
+        @array_of_tracks.push(h)
+      end
 
     end
 
     Rails.application.config.array_of_tracks = @array_of_tracks
+
+    Rails.application.config.question_array = []
+
+    Rails.application.config.times = 0
 
     puts @array_of_tracks
 
@@ -40,10 +45,6 @@ class SwipesController < ApplicationController
     redirect_to swipes_path()
   end
 
-  def right
-    @song = Rails.application.config.categories
-
-  end
 
   private
 
