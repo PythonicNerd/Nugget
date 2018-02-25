@@ -13,8 +13,8 @@ class QuestionsController < ApplicationController
       puts e
       Rails.application.config.categories = []
       Rails.application.config.question_array = Question.all.shuffle
+end
 
-    end
 
     puts       Rails.application.config.categories
 
@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
       Rails.application.config.question_array = []
      redirect_to swipes_path
     end
+
 
   end
 

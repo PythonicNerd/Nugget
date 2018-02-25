@@ -26,6 +26,7 @@ html, body{height:100%; margin:0;padding:0}
 </style>
 
 
+<% begin %>
 <div class="container text-center container-main vertical-center">
 <h1 ><%= Rails.application.config.array_of_tracks[0][:name] %></h1>
 <h3>By: <%= Rails.application.config.array_of_tracks[0][:artist] %> (<%= @array_of_tracks[0][:duration] %>)</h3>
@@ -37,5 +38,9 @@ html, body{height:100%; margin:0;padding:0}
 </div>
 </div>
 </div>
+
+<% rescue %>
+<% controller.redirect_to 'traffic_error' %>
+<% end %>
 
 <%= link_to "Home", root_path %>
