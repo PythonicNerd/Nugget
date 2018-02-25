@@ -4,4 +4,8 @@ class PagesController < ApplicationController
     render 'landing_page'
   end
 
+  def loading
+    render 'loading'
+  end
+  
 end

@@ -1,4 +1,8 @@
 class SwipesController < ApplicationController
+
+  def show
+    render 'loading'
+  end
   def index
     begin
 

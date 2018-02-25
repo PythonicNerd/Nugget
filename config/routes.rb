@@ -12,5 +12,11 @@ Rails.application.routes.draw do
     get 'next'
   end
 
-  resources 'landing_page'
+  resources 'landing_page' do
+    get 'loading'
+  end
+
+  resources 'loadings' do
+    get 'load'
+  end
 end

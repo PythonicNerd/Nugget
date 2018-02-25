@@ -8,12 +8,14 @@ class QuestionsController < ApplicationController
 
 
       @question_array = Rails.application.config.question_array
+      @loading = false
 
     rescue => e
       puts e
       Rails.application.config.categories = []
       Rails.application.config.question_array = Question.all.shuffle
-end
+      @loading = false
+    end
 
 
     puts       Rails.application.config.categories
@@ -22,12 +24,20 @@ end
     puts (Question.all.length - Rails.application.config.question_array.length)
     puts 'times'
     if Rails.application.config.question_array[0] == nil
-      Rails.application.config.question_array = Question.all.shuffle
+      Rails.application.config.categories = Rails.application.config.categories.uniq
+
+
+      Rails.application.config.question_array = (Question.all.shuffle - Rails.application.config.categories)
+      puts Rails.application.config.question_array
+      puts "New Array"
     end
 
     if (Question.all.length - Rails.application.config.question_array.length) == 5
-      Rails.application.config.question_array = []
-     redirect_to swipes_path
+
+      @loading = true
+     #redirect_to swipes_path
+     Rails.application.config.question_array = []
+     redirect_to loadings_path
     end
 
 
@@ -47,14 +57,18 @@ end
     rescue
     end
 
-    redirect_to questions_path
+    if not @loading
+      redirect_to questions_path
+    end
   end
 
   def no
 
     Rails.application.config.question_array.shift
 
-    redirect_to questions_path
+    if not @loading
+      redirect_to questions_path
+  end
 end
 
 
