@@ -35,9 +35,10 @@ class QuestionsController < ApplicationController
     if (Question.all.length - Rails.application.config.question_array.length) == 5
 
       @loading = true
-     #redirect_to swipes_path
+
      Rails.application.config.question_array = []
-     redirect_to loadings_path
+     #redirect_to loadings_path
+     redirect_to swipes_path
     end
 
 

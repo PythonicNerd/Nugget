@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'disable_buttons_question' %>
+
 <style>
 
 html, body{height:100%; margin:0;padding:0}
@@ -28,13 +30,13 @@ html, body{height:100%; margin:0;padding:0}
 
 <% begin %>
 <div class="container text-center container-main vertical-center">
-<h1 ><%= Rails.application.config.array_of_tracks[0][:name] %></h1>
-<h3>By: <%= Rails.application.config.array_of_tracks[0][:artist] %> (<%= @array_of_tracks[0][:duration] %>)</h3>
+<h1 id = "question"><%= Rails.application.config.array_of_tracks[0][:name] %></h1>
+<h3 id = "question-desc">By: <%= Rails.application.config.array_of_tracks[0][:artist] %> (<%= @array_of_tracks[0][:duration] %>)</h3>
 
 <div class="row choice-row text-center">
   <div class="col">
-  <%= link_to "Next", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left" %>
-  <%= link_to "Preview Song", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg" %>
+  <%= link_to "Next", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left", :id => 'yes' %>
+  <%= link_to "Preview Song", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg", :id => 'preview' %>
 </div>
 </div>
 </div>
