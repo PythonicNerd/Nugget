@@ -24,13 +24,15 @@ html, body{height:100%; margin:0;padding:0}
 
     <div class="row choice-row">
       <div class="col">
-    <%= link_to Rails.application.config.question_array[0].option1, question_yes_path(@current_question, Rails.application.config.question_array[0]), :class => "btn btn-lg btn-primary yes-button" %>
-
-    <%= link_to Rails.application.config.question_array[0].option2, question_no_path(@current_question), :class => "btn btn-lg btn-primary no-button" %>
+    <%= link_to Rails.application.config.question_array[0].option1, question_yes_path(0), :class => "btn btn-lg btn-primary yes-button" %>
+    <%= link_to Rails.application.config.question_array[0].option2, question_no_path(0), :class => "btn btn-lg btn-primary no-button" %>
 </div>
     </div>
-  <% rescue %>
-    <% controller.redirect_to swipes_path %>
+  <% rescue => error%>
+    <% puts error %>
+    <% puts "^ ERROR" %>
   <% end %>
 </div>
-<% link_to "Home", root_path %>
+
+
+<%= link_to "Home", root_path %>

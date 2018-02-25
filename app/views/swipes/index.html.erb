@@ -32,8 +32,10 @@ html, body{height:100%; margin:0;padding:0}
 
 <div class="row choice-row text-center">
   <div class="col">
-  <%= link_to "Left", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left" %>
-  <%= link_to "Right", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg" %>
+  <%= link_to "Next", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left" %>
+  <%= link_to "Preview Song", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg" %>
 </div>
 </div>
 </div>
+
+<%= link_to "Home", root_path %>

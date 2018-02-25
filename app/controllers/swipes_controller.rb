@@ -2,8 +2,6 @@ class SwipesController < ApplicationController
   def index
     RSpotify.authenticate("5fc8d642deb74674848fee0fd969256e", "b5e3187924da4848b8a0183f509fe46e")
 
-
-    Rails.application.config.times = 0
     @genres = Rails.application.config.categories
 
     @genres = @genres.uniq
@@ -33,12 +31,6 @@ class SwipesController < ApplicationController
     Rails.application.config.question_array = []
 
 
-    puts @array_of_tracks
-
-    puts @genres
-    puts "^^^^"
-
-
   end
 
   def next
@@ -55,9 +47,9 @@ class SwipesController < ApplicationController
     minutes = duration / (1000 * 60) % 60
 
     if hours != 0
-      "#{hours}h #{minutes}m"
+      "#{hours} hours and #{minutes} minutes"
     elsif hours == 0
-      "#{minutes}m"
+      "#{minutes} minutes"
     end
     rescue
       ""
