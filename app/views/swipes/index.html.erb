@@ -10,7 +10,7 @@ html, body{height:100%; margin:0;padding:0}
 
 }
 .container-main{
-  margin-top: 20%;
+  margin-top: 5%;
 }
 
 .choice-row{
@@ -25,6 +25,17 @@ html, body{height:100%; margin:0;padding:0}
   margin-right: 10px;
 }
 
+#question{
+  font-size: 70px;
+}
+#question-desc{
+  font-size: 40px;
+}
+
+.choice{
+  font-size: 50px;
+}
+
 </style>
 
 
@@ -35,8 +46,8 @@ html, body{height:100%; margin:0;padding:0}
 
 <div class="row choice-row text-center">
   <div class="col">
-  <%= link_to "Next", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left", :id => 'yes' %>
-  <%= link_to "Preview Song", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg", :id => 'preview' %>
+  <%= link_to "Next", swipe_next_path(0), :class => "btn btn-info btn-lg btn-left choice", :id => 'yes' %>
+  <%= link_to "Preview Song", Rails.application.config.array_of_tracks[0][:url], :target => '_blank', :class => "btn btn-info btn-lg choice", :id => 'preview' %>
 </div>
 </div>
 </div>
