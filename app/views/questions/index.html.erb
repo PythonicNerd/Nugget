@@ -23,10 +23,10 @@ html, body{height:100%; margin:0;padding:0}
 <% begin %>
 
   <div class="container text-center container-main vertical-center">
-    <h1 id="question"><%= Rails.application.config.question_array[0].title %></h1>
+    <h1 id="question col col-sm-6"><%= Rails.application.config.question_array[0].title %></h1>
 
     <div class="row choice-row">
-      <div class="col">
+      <div class="col col-sm-6">
     <%= link_to Rails.application.config.question_array[0].option1, question_yes_path(0), :class => "btn btn-lg btn-primary yes-button", :id => 'yes' %>
     <%= link_to Rails.application.config.question_array[0].option2, question_no_path(0), :class => "btn btn-lg btn-primary no-button", :id => 'no' %>
 </div>
