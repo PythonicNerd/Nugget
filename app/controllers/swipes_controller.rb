@@ -15,6 +15,24 @@ class SwipesController < ApplicationController
 
     @genres.map!(&:downcase)
 
+    @g_copy = @genres
+
+    joined_genres = []
+
+    @genres.each do |song|
+      @genres.each do |song2|
+        if song != song2
+          combined_song = (song + ' ' + song2).to_s
+          joined_genres.push(combined_song)
+        end
+      end
+    end
+
+    puts joined_genres
+    puts "joined genres ^"
+
+    @genres += joined_genres
+
     recommendations = RSpotify::Recommendations.generate(seed_genres: @genres)
 
 
