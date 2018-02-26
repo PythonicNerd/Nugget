@@ -9,11 +9,20 @@ html, body{height:100%; margin:0;padding:0}
 
 }
 .container-main{
-  margin-top: 20%;
+  margin-top: 5%;
 }
 
 .choice-row{
   margin-top: 5px;
+}
+
+.choice{
+  margin-top: 5px;
+  font-size: 50px
+}
+
+#question{
+  font-size: 100px;
 }
 
 </style>
@@ -27,8 +36,8 @@ html, body{height:100%; margin:0;padding:0}
 
     <div class="row choice-row">
       <div class="col col-sm-12 col-xs-12 col-lg-12 col-md-12">
-    <%= link_to Rails.application.config.question_array[0].option1, question_yes_path(0), :class => "btn btn-lg btn-primary yes-button", :id => 'yes' %>
-    <%= link_to Rails.application.config.question_array[0].option2, question_no_path(0), :class => "btn btn-lg btn-primary no-button", :id => 'no' %>
+    <%= link_to Rails.application.config.question_array[0].option1, question_yes_path(0), :class => "btn btn-lg btn-primary yes-button choice", :id => 'yes' %>
+    <%= link_to Rails.application.config.question_array[0].option2, question_no_path(0), :class => "btn btn-lg btn-primary no-button choice", :id => 'no' %>
 </div>
     </div>
   <% rescue => error%>
