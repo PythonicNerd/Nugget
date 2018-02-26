@@ -6,7 +6,7 @@ class SwipesController < ApplicationController
   def index
     begin
 
-      RSpotify.authenticate("5fc8d642deb74674848fee0fd969256e", "b5e3187924da4848b8a0183f509fe46e")
+      RSpotify.authenticate("2b801257fdfa4b1c864abb83d9a573fa", "817a4be616634f058e769bdebe11f8ba")
 
 
     @genres = Rails.application.config.categories
@@ -61,6 +61,8 @@ class SwipesController < ApplicationController
     Rails.application.config.question_array = []
 
   rescue => e
+    puts e
+    puts "error"
     render 'traffic_error'
 end
 

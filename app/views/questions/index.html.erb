@@ -25,6 +25,9 @@ html, body{height:100%; margin:0;padding:0}
   font-size: 100px;
 }
 
+.btn-home{
+  margin-top: 7%;
+}
 </style>
 
 
@@ -47,4 +50,6 @@ html, body{height:100%; margin:0;padding:0}
 </div>
 
 
-<%= link_to "Home", root_path %>
+<div class="container-fluid text-center">
+  <%= link_to "Home", root_path, :class => 'btn btn-md btn-warning btn-home' %>
+</div>
