@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'pages#index'
+
 
   resources "questions" do
     get 'yes'
@@ -12,11 +12,13 @@ Rails.application.routes.draw do
     get 'next'
   end
 
-  resources 'landing_page' do
+  resources 'pages' do
     get 'loading'
+    get 'number_of_questions'
+    post 'number_of_questions'
   end
 
-  resources 'loadings' do
-    get 'load'
-  end
+
+  root 'pages#index'
+
 end

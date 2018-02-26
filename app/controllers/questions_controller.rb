@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
 
       @question_array = Rails.application.config.question_array
+      @number = Rails.application.config.number
       @loading = false
 
     rescue => e
@@ -23,6 +24,9 @@ class QuestionsController < ApplicationController
 
     puts (Question.all.length - Rails.application.config.question_array.length)
     puts 'times'
+    puts Rails.application.config.number
+    puts '^ number'
+
     if Rails.application.config.question_array[0] == nil
       Rails.application.config.categories = Rails.application.config.categories.uniq
 
@@ -32,7 +36,7 @@ class QuestionsController < ApplicationController
       puts "New Array"
     end
 
-    if (Question.all.length - Rails.application.config.question_array.length) == 5
+    if (Question.all.length - Rails.application.config.question_array.length) >= Rails.application.config.number.to_i
 
       @loading = true
 

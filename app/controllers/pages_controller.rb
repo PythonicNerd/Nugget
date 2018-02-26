@@ -7,5 +7,11 @@ class PagesController < ApplicationController
   def loading
     render 'loading'
   end
-  
+
+  def create
+    number = params[:how_many][:questions]
+    Rails.application.config.number = number
+    redirect_to questions_path
+  end
+
 end
