@@ -6,7 +6,7 @@ class SwipesController < ApplicationController
   def index
     begin
 
-      RSpotify.authenticate("2b801257fdfa4b1c864abb83d9a573fa", "817a4be616634f058e769bdebe11f8ba")
+      RSpotify.authenticate("5fc8d642deb74674848fee0fd969256e", "b5e3187924da4848b8a0183f509fe46e")
 
 
     @genres = Rails.application.config.categories
@@ -14,6 +14,8 @@ class SwipesController < ApplicationController
     @genres = @genres.uniq
 
     @genres.map!(&:downcase)
+
+
 
     @g_copy = @genres
 
@@ -24,6 +26,9 @@ class SwipesController < ApplicationController
         if song != song2
           combined_song = (song + ' ' + song2).to_s
           joined_genres.push(combined_song)
+          added_songs.push(song)
+          added_songs.push(song2)
+
         end
       end
     end
@@ -31,7 +36,7 @@ class SwipesController < ApplicationController
     puts joined_genres
     puts "joined genres ^"
 
-    @genres += joined_genres
+    #@genres += joined_genres
 
     recommendations = RSpotify::Recommendations.generate(seed_genres: @genres)
 
@@ -57,6 +62,9 @@ class SwipesController < ApplicationController
 
 
     Rails.application.config.array_of_tracks = @array_of_tracks
+
+    puts recommendations.tracks[0].artists[0].genres
+    puts 'genres  ^_^_^'
 
     Rails.application.config.question_array = []
 
